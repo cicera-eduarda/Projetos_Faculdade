@@ -1,0 +1,59 @@
+No histórico de confrontos entre Botafogo e Vasco, o primeiro obteve 190 vitórias e 46 empates no total de 502 partidas. Para superar seu rival no número de vitórias, da maneira mais breve possível, o time do Botafogo deveria vencer consecutivamente, a partir do próximo jogo, o seguinte número de partidas:
+
+77
+
+Num mercado de trocas, quatro quilos de arroz equivalem a 3 quilos de feijão, e um quilo de feijão equivale a oito quilos de sal. A quantidade de sal que equivale a um quilo de arroz é: 
+
+12kilos - mais proximo 
+
+
+Numa marina há 450 barcos, de cujos proprietários 280 são mulheres, 220 são pessoas casadas e 30 são homens solteiros. As mulheres casadas que possuem barcos nessa marina são num total de: 
+
+450pessoas _ 280mulhers =170 homens
+
+Desses 170 homens, 30 são solteiros. Dessa forma temos 140 homens casados.
+Se o total de pessoas casados é 220, basta diminuir 220_ 140= 80 mulheres casadas 
+
+
+Observe a sequência a seguir: 
+1, 6, 31, 156, 781... 
+Qual é o 6º termo dessa sequência? : 3906
+
+
+Ao final de uma greve de vigilantes, a categoria conseguiu um aumento salarial de 6%. Um vigilante pode calcular seu novo salário multiplicando a quantia que costumava receber por: 
+
+1,06
+
+No vestibular de uma faculdade, o aluno ganha 3 pontos por questão acertada, perde 1 ponto por questão deixada em branco e perde 2 pontos por questão errada. Se José se lembra de ter deixado 2 questões em branco e sabe que a pontuação mínima para ser aprovado é de 22 pontos, o mínimo de questões que ele deve acertar, é: 
+9
+
+Um número com três algarismos é tal que a soma de seus dois últimos algarismos é 8, e o produto de todos os seus algarismos é 90. O algarismo das unidades desse número é:
+3
+
+O proprietário de uma loja de doces compra cada pacote de 30 balas por 10 reais e revende pacotinhos com 5 dessas balas a 6 reais. Quantos pacotinhos com 5 balas cada ele deverá vender, no mínimo, para ter um lucro igual ou maior que 30 reais? 
+6
+
+Há apenas 2 operadoras aéreas que ofertam vôos diretos de Brasília para Manaus. A primeira realiza saídas de 14 em 14 horas, enquanto os vôos da segunda saem a cada 16 horas. Se às 13h da tarde do dia 03/01/2018, ambas as operadoras realizaram partidas de Brasília com destino a Manaus (em vôo direto), o momento em que as duas operadoras voltarão a decolar no mesmo horário é: 
+5 horas do dia 8/01/2018
+
+Um gaitista que possui várias gaitas e dá manutenção nos próprios instrumentos, decidiu verificar o estado de conservação de todas elas num só dia. Verificou que das 54 gaitas de seu acervo, algumas estavam em perfeito estado, já outras demandavam reparos. O número das gaitas perfeitas e das defeituosas estavam numa estavam numa razão de 2/7. Sabendo disso, o número de gaitas defeituosas era: 
+
+42
+Nos últimos anos de sua carreira, o jogador Reybar apresentou uma melhora constante em seu desempenho. Na última temporada (2017), marcou 20% mais gols do que na anterior (2016), sendo que na de 2016 já havia marcado 10% mais do que na de 2015. Se na temporada de 2017 ele marcou 132 gols, qual o total de gols marcados por ele nas últimas 3 temoporadas (2015 a 2017)?
+342
+
+Uma torneira A enche um tanque de água em 4 horas, enquanto a torneira B enche um tanque de mesma capacidade em 6 horas. Se as duas torneiras fossem acionadas juntas para encher um mesmo tanque de água, elas gastariam um total de: 
+2h24m
+
+
+O relógio da catedral de Formosa começou a apresentar um defeito tal que a cada hora efetivamente passada ele se adianta em 36 segundos. Se ele for ajustado à hora correta às 6h da manhã da segunda-feira, que hora ele marcará ao meio dia da quarta-feira da mesma semana? 
+12h 32m 20s
+
+Numa viagem à Índia, Marcela esteve em 4 cidades onde suas impressões sobre a culinária local variaram drasticamente. Na primeira cidade, se satisfez tanto com a comida que ganhou um peso equivalente a 10% do que pesava quando lá chegou. Na segunda cidade, perdeu 10% de seu peso corporal. Na terceira cidade, Marcela ganhou 20% de peso, para depois perder 20% de peso corporal na última cidade visitada. Ao final da viagem o peso de Marcela terminou aproximadamente: 5% inferior
+
+
+Uma máquina dosadora de sucos é capaz de encher 800 garrafas de suco em 3 horas de trabalho. Uma máquina similar, mas com problemas operacionais apresenta apenas 75% da eficiência da primeira máquina e, portanto, seria capaz de encher 3.216 garrafas em: 
+
+16horas
+
+

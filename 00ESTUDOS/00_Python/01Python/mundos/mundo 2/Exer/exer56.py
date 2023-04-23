@@ -1,0 +1,1 @@
+#dESENVOLVA UM PROGRAMA QUE LEIA O NOME IDADE E SEXO DE 4 PESSOAS. nO FINAL O PROGRAMA MOSTRA: a MEDIA DE IDADE DO GRUPO. qual o nome do homem mais velho, quantas mulheres tem menos de 20 anos

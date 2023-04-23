@@ -1,0 +1,62 @@
+Marque a alternativa que explica corretamente o conceito de LAN, WAN e WLAN, respectivamente. 
+    LAN (Local Area Network): é uma rede de computadores que abrange uma área geográfica limitada, como um prédio, um campus universitário ou uma empresa. Essas redes são geralmente de propriedade privada e são usadas para compartilhar recursos, como impressoras e arquivos, entre os dispositivos conectados. As LANs podem ser com fio ou sem fio.
+
+    WAN (Wide Area Network): é uma rede de computadores que abrange uma área geográfica maior do que uma LAN, geralmente conectando dispositivos em diferentes cidades, estados ou países. As WANs são usadas para conectar diferentes redes locais e permitir a comunicação entre elas. As WANs são geralmente gerenciadas por empresas de telecomunicações ou provedores de serviços de internet.
+
+    WLAN (Wireless Local Area Network): é uma rede de computadores sem fio que abrange uma área geográfica limitada, como uma casa, um escritório ou um aeroporto. As WLANs usam tecnologia de radiofrequência para conectar dispositivos sem fio à rede. As WLANs são ideais para ambientes onde o cabeamento não é possível ou desejável.
+    
+    
+    Para que um funcionário do CRMV-PR, usando seu computador de trabalho, possa transferir para o seu computador um arquivo localizado em um servidor na Internet, deverá fazer uso da ferramenta
+    O FTP é um protocolo de rede usado para transferir arquivos de um computador para outro através da Internet ou de uma rede local. Ele permite que o usuário se conecte a um servidor remoto, navegue pelo sistema de arquivos e transfira arquivos entre o servidor e o computador local.
+    
+    Um dos protocolos de comunicação mais utilizados para acessar as mensagens da caixa de entrada dos correios eletrônicos é o: 
+    
+    O IMAP (Internet Message Access Protocol) e o SMTP (Simple Mail Transfer Protocol) são protocolos de rede diferentes usados para funções diferentes no envio e recebimento de e-mails.
+
+O SMTP é usado para enviar e-mails de um cliente de e-mail ou servidor para outro servidor. Ele é responsável pelo roteamento das mensagens de e-mail pela internet e por entregá-las ao servidor de e-mail do destinatário.
+
+Já o IMAP é usado para acessar e gerenciar as mensagens de e-mail armazenadas em um servidor remoto. Ele permite que os usuários visualizem e gerenciem suas mensagens de e-mail em vários dispositivos e clientes de e-mail, sem a necessidade de baixar as mensagens para o seu dispositivo local.
+
+Portanto, é difícil dizer qual é o protocolo mais utilizado, pois ambos são usados para funções diferentes e complementares no processo de envio e recebimento de e-mails. O uso de cada protocolo depende das necessidades específicas do usuário e da configuração do servidor de e-mail.
+
+
+A ferramenta traceroute é utilizada, especificamente, para medir o tempo de resposta da conexão entre computadores de uma rede local? 
+
+Não, a afirmação não é verdadeira. O traceroute é uma ferramenta de diagnóstico de rede que é usada para rastrear o caminho que um pacote de dados leva de um dispositivo para outro em uma rede.
+
+O objetivo principal do traceroute é ajudar a identificar problemas na rede, como rotas incorretas, falhas de conexão, tempo de resposta lento, entre outros. Ele não é usado especificamente para medir o tempo de resposta da conexão entre computadores em uma rede local, mas sim para fornecer informações sobre o tempo que cada roteador ou dispositivo da rede leva para processar e encaminhar os pacotes de dados.
+
+
+Com relação às redes de computadores, analise as afirmativas a seguir. // todas estao corretas
+
+I. Na topologia estrela ou radial, todas as conexões físicas ligam os microcomputadores às portas do switch, um equipamento que funciona com concentrador de rede.  
+
+ A afirmativa é verdadeira. Na topologia estrela ou radial, todos os microcomputadores estão ligados a um switch central, que é o equipamento responsável por fazer a interconexão da rede. Cada microcomputador é conectado fisicamente a uma porta do switch, geralmente usando cabos Ethernet, formando assim uma rede local. O switch funciona como um concentrador de rede, encaminhando os pacotes de dados apenas para o destino correto, garantindo assim uma transmissão de dados mais eficiente e segura. Essa topologia é uma das mais comuns em redes de computadores modernas, principalmente em redes locais empresariais.
+
+II. Os conectores empregados em cabos UTP são conhecidos pela sigla RJ-45, sendo as guias 1 e 2 utilizadas para transmissão e 3 e 6 para recepção dos dados.  
+
+Os conectores empregados em cabos UTP (Unshielded Twisted Pair), que são os mais comuns em redes de computadores, são de fato conhecidos pela sigla RJ-45. No entanto, as guias 1 e 2 não são utilizadas especificamente para transmissão, e as guias 3 e 6 não são usadas especificamente para recepção dos dados. Na verdade, as guias são usadas em pares, e cada par é usado para transmitir e receber sinais de dados.
+
+Os pares de guias 1 e 2 são usados para transmitir sinais de dados, enquanto os pares de guias 3 e 6 são usados para receber sinais de dados. Os outros dois pares de guias (4 e 5, e 7 e 8) são usados para outros fins, como alimentação de energia em dispositivos de rede PoE (Power over Ethernet).
+
+Portanto, a afirmativa precisa ser corrigida para que fique correta. Os conectores empregados em cabos UTP são conhecidos pela sigla RJ-45, e os pares de guias 1 e 2 são usados para transmitir sinais de dados, enquanto os pares de guias 3 e 6 são usados para receber sinais de dados.
+ 
+
+III. No padrão wireless, um mecanismo conhecido por DHCP é empregado nos roteadores para atribuir endereços IP dinamicamente aos dispositivos que se conectam às redes de computadores. 
+A afirmativa é verdadeira. O DHCP (Dynamic Host Configuration Protocol) é um protocolo de rede usado para atribuir endereços IP dinamicamente aos dispositivos que se conectam a uma rede de computadores, seja ela com fio ou sem fio (wireless).
+
+Nos roteadores sem fio, o DHCP é usado para fornecer automaticamente endereços IP aos dispositivos que se conectam à rede Wi-Fi, sem a necessidade de configurar manualmente cada dispositivo com um endereço IP válido na rede. Isso facilita bastante a configuração e gerenciamento da rede, além de permitir que um grande número de dispositivos possa se conectar à rede simultaneamente.
+
+O DHCP também pode ser usado em redes com fio, como uma rede local empresarial, por exemplo, onde o roteador ou servidor DHCP é responsável por atribuir dinamicamente os endereços IP aos dispositivos conectados via cabo Ethernet.
+
+
+
+Um cabo de rede crossover é usado para conectar dois dispositivos do mesmo tipo, como dois computadores, ou dois switches, por exemplo. A sequência de cores de um cabo de rede crossover é a seguinte:
+
+    Ponta A: Branco/Laranja, Laranja, Branco/Verde, Azul, Branco/Azul, Verde, Branco/Marrom, Marrom.
+
+    Ponta B: Branco/Verde, Verde, Branco/Laranja, Azul, Branco/Azul, Laranja, Branco/Marrom, Marrom.
+
+Note que a ordem das cores é a mesma em ambas as pontas, mas os pares de fios estão trocados em uma das pontas. Isso é necessário para que os sinais de transmissão e recepção possam ser enviados e recebidos corretamente entre os dispositivos conectados pelo cabo crossover.
+
+

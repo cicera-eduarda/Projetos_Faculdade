@@ -1,0 +1,1 @@
+#Faça um proograma que calcule a soma entre todos os numeros impares que sao multiplos de tres e que see encontram no intervalo de 1 ate 500

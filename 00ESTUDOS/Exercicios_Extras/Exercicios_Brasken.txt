@@ -1,0 +1,326 @@
+#Exercicios resolvidos curso Brasken
+
+
+
+#Questão 1
+#Resposta incorreta
+
+#Muitas vezes é requerido o armazenamento de algum valor ou o resultado de alguma operação, para que os dados possam ser utilizados em outras partes do programa. Para que isso seja possível, o Python permite a criação de variáveis. Sabendo disso, considere o trecho de código a seguir:
+
+var1 = 12
+
+var2 = 30
+
+var3 = var1 XXX var2
+
+print(var3)
+
+var3 = var3 YYY 2
+
+print(var3)
+
+A instrução print(var3) exibe na tela o valor armazenado na variável var3, em cada uma das duas vezes que a instrução aparece no script acima. Para que os valores exibidos na tela sejam, nessa ordem, 42 e 21.0, quais operadores matemáticos devem substituir 'XXX' e 'YYY' no trecho de código, respectivamente?
+
++ e :
+
+* e /
+
++ e *
+
++ e /
+
++ e //
+
+
+Questão 2
+Resposta correta
+
+Algumas situações requerem que os dados sejam recebidos diretamente pelo usuário como parte da execução do programa. Isso pode ser feito com a função input(). No entanto, esta função sempre retorna os valores em string. Assim, se os dados esperados do usuário forem numéricos, é importante realizar a conversão dos tipos de dados para que eles possam ser processados. Considere o trecho abaixo:
+
+num1 = XXX
+
+dobro = 2*num1
+
+print("O dobro do número digitado é:", dobro)
+
+Levando em consideração que o usuário pode entregar qualquer número como input, o 'XXX' no código acima deve ser substituído por qual elemento?
+
+input("Digite um número a seguir: ")
+
+float(input("Digite um número a seguir: "))
+
+str(input("Digite um número a seguir: "))
+
+int(input("Digite um número a seguir: "))
+
+list(input("Digite um número a seguir: "))
+
+
+Questão 3
+Resposta correta
+
+Para a construção de programas flexíveis e mais complexos, é necessário que haja a realização de comparações. Isso é possível com o uso de operadores lógicos de comparação (em python: ==, !=, <, <=, >, >=), como mostra o código:
+
+x = 10
+y = 4.2
+
+num = float(input("Digite um número a seguir: "))
+
+print(num > x*y, num <= x + y, num*y != x*y)
+
+Suponha que na execução do script acima, o usuário digitou o valor 10, quando solicitado pelo input. Qual das alternativas a seguir produz o mesmo output que o script acima?
+
+print(num == x, num == y, num == x + y)
+
+print(2 == "2", False, 2.0 == 2)
+
+print(True, False, False)
+
+print(num == x*y, num*y == x*y, y > x + num)
+
+print(False, True, True)
+
+Questão 4
+Resposta incorreta
+
+Em muitos programas é necessário que mais de uma expressão lógica seja avaliada, de maneira composta. É possível realizar a composição lógica através dos operadores and e or do Python. Além disso, o operador not é utilizado para inverter o valor lógico de um booleano ou expressão lógica como um todo.
+
+x = 4.2
+
+y = 10
+
+z = "42"
+
+not (((x * y == z) and not (x < y)) or y % 2 == 0)
+
+Qual das seguintes alternativas contém uma expressão que resulta no mesmo valor lógico (True ou False) que a última linha do código acima?
+
+not (not (x < y and x * y == z)) or (x >= y or y % 2 == 0)
+
+not False
+
+not ((x == y or True) and ((int(z) < x*y) and (type(y) == type(int(z)))))
+
+not (((not True) or int(z) % 7 == 0) and ((str(int(x*y)) == z) and (type(x) != type(z))))
+
+(True and True) or not True
+
+
+Questão 5
+Resposta correta
+
+Um dos principais usos destinados aos operadores lógicos é a construção de expressões condicionais, que são utilizadas para (re)direcionar o fluxo de um programa. Isso é possível com as expressões if, elif e else em Python.
+
+a = int(input("Digite o primeiro número inteiro: "))
+b = int(input("Digite o segundo número inteiro: "))
+c = int(input("Digite o terceiro número inteiro: "))
+
+if a > b and a > c:
+
+  resposta = a % 2 == 0
+
+elif b > a and b > c:
+
+  resposta = b % 2 == 0
+
+else:
+
+  resposta = c % 2 == 0
+
+print(XXX, resposta)
+
+Pelo que o "XXX" deve ser substituído no código acima (ou seja, o que este código efetivamente faz?)
+
+"O maior número entre os três informados é positivo?" (ou seja, o programa exibe, através de um booleano, se o maior entre os três números informados é positivo).
+
+"O maior entre os três números informados é:" (ou seja, o programa exibe qual é o maior entre os três números informados).
+
+"O maior número entre os três informados é par?", (ou seja, o programa exibe, através de um booleano, se o maior entre os três números informados é par).
+
+"O menor entre os três números informados é:" (ou seja, o programa exibe qual é o menor entre os três números informados).
+
+"O maior número entre os três informados é ímpar?" (ou seja, o programa exibe, através de um booleano, se o maior entre os três números informados é ímpar).
+
+
+Questão 1
+Resposta correta
+
+Em Python é possível utilizar expressões condicionais para o direcionamento de fluxo do código. Considere o trecho de código a seguir:
+
+x = int(input("Digite um número inteiro: "))
+
+if XXX:
+    resp1 = "negativo"
+else:
+    resp1 = "positivo"
+    
+if ***:
+    resp2 = "par"
+else:
+    resp2 = "impar"
+    
+
+print("
+O número {} é {} e {}.".format(x, resp1, resp2))
+
+O código acima informa se o número inteiro informado pelo usuário (e armazenado na variável x) é positivo ou negativo e par ou ímpar. Por exemplo, caso o usuário digite o número -42, o output esperado é:
+
+O número -42 é negativo e par.
+
+Para que este output seja possível, pelo que devemos substituir XXX e *** no código acima, respectivamente?
+
+x > 0
+
+e
+
+x % 2 == 0
+
+x < 0
+
+e
+
+x // 2 == 0
+
+x == 0
+
+e
+
+x / 2 == 0
+
+x < 0
+
+e
+
+x % 2 == 0
+
+x < 0
+
+e
+
+x % 2 != 0
+
+
+É muito frequente o uso de programação para a automação de tarefas repetitivas, sendo possível devido às estruturas de repetição. Em python, uma dessas estruturas é o laço while, que determina que um bloco de código seja repetido enquanto uma dada condição for verdadeira. Observe o código a seguir:
+
+cont = 0
+resultado = 0
+n = 1000
+
+while cont != n:
+
+    resultado = resultado + 1/(2**cont)
+
+    cont = cont + 1
+
+print(resultado)
+
+Ao ser executado, o que o trecho de código acima mostra na tela?
+
+A soma dos n-1 (no caso, n-1 = 999) primeiros termos da série 1/2, 1/2, 1/2, 1/2,...
+
+A soma dos n (no caso, n = 1000) primeiros termos da série 1, 1/2, 1/4, 1/8,...
+
+A soma dos n (no caso, n = 1000) primeiros termos da série 1/2, 1/4, 1/8, 1/16,...
+
+A soma dos n (no caso, n = 1000) primeiros termos da série 1/2, 1/2, 1/2, 1/2,...
+
+A soma dos n-1 (no caso, n-1 = 999) primeiros termos da série 1, 1/2, 1/4, 1/8,...
+
+Além do laço de repetição while, muitas vezes utilizamos o operador for em Python para implementarmos laços de repetição. Embora isso seja possível, o for é mais do que meramente um laço de repetição: este operador é utilizado para percorrer alguma estrutura iterável.
+
+for _ in range(10):
+ 
+   print("Olá, mundo!") 
+
+Quando queremos utilizar o for explicitamente como um laço de repetição, é muito comum utilizarmos a estrutura acima, com o auxílio do iterador range(). No entanto, o mesmo comportamento é possível se nos aproveitarmos do fato de que o for percorre qualquer iterável. Sabendo disso, das alternativas a seguir, qual é a única que NÃO reproduz o mesmo resultado que o trecho acima?
+
+for _ in "let's code":
+  print("Olá, mundo!")
+
+for _ in " "*10:
+    print("Olá, mundo!")
+
+for _ in range(10, 20, 1):
+    print("Olá, mundo!")
+
+for _ in [10]:
+    print("Olá, mundo!")
+
+for _ in [10]*10:
+    print("Olá, mundo!")
+    
+    Utilizamos listas para armazenar em um único objeto uma coleção de valores. Muitas vezes, desejamos criar uma nova lista a partir de uma lista original. Observe o código abaixo:
+
+lista_inicial = [10, 5, -7, 6, -42, 63, -8, -5, 13]
+
+lista_final = []
+
+for item in lista_inicial:
+
+    if item % 2 == 0:
+
+        if item < 0:
+
+            lista_final.append(A)
+    
+        else:
+
+            lista_final.append(B)
+    else:
+
+        if item < 0:
+            
+            lista_final.append(C)
+    
+        else:
+
+            lista_final.append(D)
+
+Qual deve ser o valor de A, B, C e D, respectivamente, para que o código acima gere a seguinte lista_final: [10, 10, 14, 6, 42, 126, 8, 10, 26]?
+
+-2*item, 2*item, -item, item
+
+-item, item, -2*item, 2*item
+
+2*item, -2*item, item, -item
+
+item, -item, 2*item, -2*item
+
+-item, 2*item, -2*item, item
+
+Questão 5
+Resposta incorreta
+
+Algumas funções podem nos ajudar a trabalhar com listas. Observe o código abaixo e o respectivo output desejado:
+
+animais = ['gato', 'coelho', 'macaco', 'girafa']
+
+animais.função1('gato')
+print(animais)
+print(função2(animais))
+print(animais.função3('coelho'))
+
+Output desejado:
+
+> ['coelho', 'macaco', 'girafa']
+> 3
+> 0
+
+Respectivamente, por quais funções devemos substituir função1, função2 e função3 no código acima, para obter o output desejado?
+
+remove, max, min
+
+pop, count, index
+
+remove, count, index
+
+remove, len, index
+
+append, len, index
+
+
+
+
+
+
+
