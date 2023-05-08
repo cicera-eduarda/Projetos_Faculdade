@@ -45,6 +45,13 @@ while 1<=escolha_sistema<=3:
                 except ValueError:
                     print("Digite uma entrada valida! Apenas numeros inteiros")
 
+            ##Busca do codigo para ver se o mesmo já existe
+            if codigo_livro in d_livros.keys():
+                print(f"Codigo ja existente! Pertence ao livro {d_livros[0]}")
+                codigo_livro= int(input(f"Digite novamente o codigo do livro {contador}: "))
+            else: 
+                print(f"Livro {codigo_livro} cadastrado com sucesso!")
+
             #Entrada nome do livro
             titulo_livro = input("Digite o nome do livro: ").upper()
 
@@ -60,11 +67,35 @@ while 1<=escolha_sistema<=3:
             for autor in range(1,n_autores+1):
                 autor=input(f"Digite nome do {autor}º autor: ")
                 l_autores.append(autor)
-
-        #Adicao dicionario
-        d_livros[codigo_livro]=[titulo_livro,n_autores,l_autores]
-        print(d_livros)
             
+            #Preco
+            preco_livro= float(input("Insira o valor do preco do livro: "))
+
+            #Conferencia de informacoes
+
+            while True:
+                try:
+                    print(f"Informacoes adicionadas: \n 1- Codio Livro: {codigo_livro} \n 2- Titulo: {titulo_livro} \n 3- Numero de Autores: {n_autores} \n 4- Nome Autores: {l_autores} ")
+                    conf_informacoes = int(input(f"As informações estao corretas? [1-SIM] ou [2-NAO]"))
+                   
+                    if conf_informacoes == 2:
+                        break
+                    else:
+                        n_alteracao = int(input("Escolha a variavel para ser alterada: "))
+                        -
+
+                except ValueError:
+                    print("Insira apenas numeros inteiros!")
+            
+
+
+
+             #Adicao dicionario
+            d_livros[codigo_livro]=[titulo_livro,n_autores,l_autores]
+            print(d_livros)
+
+            
+            #Adicao de outro livro
 
 
 
