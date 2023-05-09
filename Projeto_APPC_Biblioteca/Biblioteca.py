@@ -147,6 +147,7 @@ while 1<=escolha_sistema<=3:
                     print("Digite apenas numeros!")
             if busca<1 or busca>3:
                 print("Escolha uma opcao valida!")
+                
             else:
                 break
         
