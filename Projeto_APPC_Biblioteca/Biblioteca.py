@@ -22,6 +22,8 @@ while True:
            
 # Escolha do sistema 
 
+contador = 0
+
 while 1<=escolha_sistema<=3:
 
     ##Sai do sistema 
@@ -35,7 +37,7 @@ while 1<=escolha_sistema<=3:
         print("\n\n\tSistema de Cadastro")
 
         deseja_continuar=1
-        contador = 0
+        
 
         while deseja_continuar==1:
             contador+=1
@@ -51,7 +53,7 @@ while 1<=escolha_sistema<=3:
 
             ##Busca do codigo para ver se o mesmo já existe
             if codigo_livro in d_livros.keys():
-                print(f"Codigo ja existente! Pertence ao livro {d_livros[0]}")
+                print(f"Codigo ja existente! Pertence a outro livro")
                 codigo_livro= int(input(f"Digite novamente o codigo do livro {contador}: "))
 
             #Entrada nome do livro
@@ -78,6 +80,7 @@ while 1<=escolha_sistema<=3:
             while True:
                 try:
                     print(f"Informacoes adicionadas: \n 1- Codio Livro: {codigo_livro} \n 2- Titulo: {titulo_livro} \n 3- Numero de Autores: {n_autores} \n 4- Nome Autores: {l_autores} \n 5 -Preco: {preco_livro}")
+                    
                     conf_informacoes = int(input(f"As informações estao corretas? [1-SIM] ou [2-NAO]: "))
                    
                     if conf_informacoes == 1:
@@ -109,9 +112,8 @@ while 1<=escolha_sistema<=3:
             
             #Continuacao Cadastro
 
-            deseja_continuar=(input("Deseja Inserir outro livro?: [1-Sim / 2-Nao]: "))
+            deseja_continuar=int(input("\n\nDeseja inserir outro livro?: [1-Sim / 2-Nao ]: "))
 
-            #Proximo programa colocar em laco antes de tudo
             if deseja_continuar==2:
                 while True:
                     while True:
@@ -125,9 +127,9 @@ while 1<=escolha_sistema<=3:
                         print("\nEscolha uma opçaõ valida!\n") 
                     else:
                         break
+            else:
+                print("Insira os dados para o proximo livro: ")
             
-
-
      #Sistema de Busca
 
     if escolha_sistema==2:
@@ -141,20 +143,19 @@ while 1<=escolha_sistema<=3:
 
             while True:
                 try:
-                    busca=input(f"Deseja buscar por: [1] - Titulo [2] - Codigo [3] - Sair")
+                    busca=input(f"Deseja buscar por: [1]- Titulo [2]- Codigo [3]- Sair: ")
                     break
                 except ValueError:
                     print("Digite apenas numeros!")
             if busca<1 or busca>3:
                 print("Escolha uma opcao valida!")
-                
-            else:
-                break
-        
-        
+            
+            elif busca==1:         
+                  busca_titulo=input("Digite o nome do livro para Busca: ").upper()
 
-
-        busca_titulo=input("Digite o nome do livro para Busca: ").upper().trim()
+                  if busca_titulo==titulo_livro in d_livros.items():
+                      
+                      print("Livro encontrado")
 
 
         #Deseja buscar novamente outro livro?
