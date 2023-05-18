@@ -14,6 +14,6 @@
 
 primeiro_termo = int(input("Insira o primeiro termo da PA: "))
 razao_pa = int(input("Digite a razao da PA: "))
-decimo_termo= primeiro_termo+(10*razao_pa)
+decimo_termo= primeiro_termo+(9*razao_pa)
 for c in range(primeiro_termo,decimo_termo,razao_pa):
     print(c, end=" -> ")

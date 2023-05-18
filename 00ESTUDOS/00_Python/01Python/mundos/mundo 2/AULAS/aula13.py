@@ -1,6 +1,7 @@
 ###         Estruturas de controles     ###
 
 ##          Lações de Repetição         ###
+##                  FOR                 ###
 
 for c in range (1,6): # UM ATE 5 NAO CONSIDERA O ULTIMO NUMERO
     print('oi')
@@ -48,3 +49,4 @@ for c in range (0,4):
     n = int(input('Digite um valor'))
     s += n
 print('A somatoria de todos os valores foi {}'.format(s))
+
