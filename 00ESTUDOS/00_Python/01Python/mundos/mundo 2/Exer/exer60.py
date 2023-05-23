@@ -10,9 +10,11 @@
 
 n = int(input("Insira um numero: "))
 c = n 
-f = 1
+fatorial=1
 
-while c>0:
+while c>0: #ele vai tirar -1 até 
     print(f'{c}', end=' ')
-    print(f"x " if c>1 else '=', end='')  #sintaze interessante
+    print(f"x " if c>1 else '=', fatorial, end=' ')  #sintaxe interessante
+    fatorial *= c 
     c-=1
+#print(fatorial) adiciona ao final

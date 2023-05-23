@@ -50,3 +50,24 @@ for c in range (0,4):
     s += n
 print('A somatoria de todos os valores foi {}'.format(s))
 
+
+print ('-'*20)
+print("Contando elementos")
+for _ in "let's code":
+  print("Olá, mundo!")
+
+print("Multiplicação de elemento por numero")
+for _ in " "*10:
+    print("Olá, mundo!")
+
+print("Range")
+for _ in range(10, 20, 1):
+    print("Olá, mundo!")
+
+print("Multiplicação por lista")
+for _ in [10]:
+    print("Olá, mundo!")
+
+print("Multiplicação de lista por elemento")
+for _ in [10]*10:
+    print("Olá, mundo!")

@@ -7,7 +7,7 @@
 sexo=str(input(f"Digite o sexo [F/M]: ")).strip().upper()[0] #tirar os espaço do inicio e final, jogar para maiusculo, pegar somente a primeira letra
 
 
-while sexo not in 'MmFf':
+while sexo not in 'MmFf': #CASO O DADO ESTEJA INVALIDO CAI AQUI, CASO ESTEJA CERTO O PROGRAMA SEGUE EM FRENTE
     sexo=str(input("Dados invalidos. Digite novamente: ")).strip().upper()[0]
 
 print(f"Sexo {sexo} registrado com sucesso!")

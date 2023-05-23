@@ -6,6 +6,7 @@
 #[5]Sair do programa
 #O programa devera realizar a operação solicitada em cada caso
 
+print("Insira os valores desejados para obtenção das operações\n")
 primeiro=int(input("Insira o primeiro valor: "))
 segundo=int(input("Insira o segundo valor: "))
 opc=0
@@ -41,7 +42,7 @@ while opc!=5:
         primeiro=int(input("Insira o novo numero: "))
         segundo=int(input("Insira o segundo numero: "))
         print(f"Os novos numeros sao {primeiro} e {segundo}")
-    elif opc==5:
+    elif opc==5: # ele ja sai do loop quando digitado 5, mas cai tambem em opção invalida!
         break
     else:
         print("Digite uma opção valida!")
