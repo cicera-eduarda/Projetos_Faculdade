@@ -20,7 +20,6 @@ l_escala=[] #cidades para escala
 #origem e destino, determinar o voo com menor numero de escalas e imprimir o voo
 
 controle=1
-
 print(f"\n{'Seja bem vindo!':^80}")
 
 
@@ -32,17 +31,22 @@ while controle>0:
             print(f'{"Menu Inicial":^80}')
             print("-"*80) 
 
-            opc_menu=int(input(f" [1] - Are Cliente \n [2] - Area Interna \n [3] - Sair do Programa\n Digite a opcao escolhida: "))
-            if opc_menu>3 or opc_menu<1:
-                print("\n\t!!Escolha dentre as opcoes oferecidas abaixo!!\n")
+            opc_menu=int(input(f" [1] - Area Cliente \n [2] - Area Interna \n [3] - Sair do Programa\n Digite a opcao escolhida: "))
+
 
         except ValueError: 
             print("\n\tERRO: Informe apenas numeros!\n")
+
+        
+        if opc_menu>3 or opc_menu<1: #nesta posicao ocasiona erro
+            print("\n\t!!Escolha dentre as opcoes oferecidas abaixo!!\n")       
+
         if opc_menu==3: #Sair do Programa
             print("-"*80)
             print(f"{'Obrigada! Volte Sempre!':^80}\n")
             controle=0
             break
+        
         elif opc_menu==2: #menu colaborador
             print("-"*80)
             print(f'{"Menu Interno! Seja Bem Vindo Colaborador!":^80}')
@@ -54,11 +58,12 @@ while controle>0:
                 break
             elif opc_menu ==1: #cadastrar voo
                 des_continuar=1
+                print("-"*80)           
+                print(f'{"Cadastro de VOO":^80}')
+                print("-"*80)  
 
                 while des_continuar==1: #castro voo / proximo voo
-                    print("\n")
-                    print("-"*80)           
-                    print(f'{"Castro de VOO":^80}')
+                
                     l_escala=[]
                     #COD_VOO
                     while True:
@@ -70,26 +75,25 @@ while controle>0:
                                 break
 
                         except:
-                            print("ERRO: INSIRA SOMENTE NUMEROS!")
+                            print("\nERRO: INSIRA SOMENTE NUMEROS!TENTE NOVAMENTE\n")
 
                     #CIDADE DE ORIGEM/DESTINO/NUMERO ESCALAS
 
                     cidade_origem= input("Insira o nome da cidade de origem do voo: ").strip().upper()
                     cidade_destino= input("Insira a cidade de destino do voo: ").strip().upper()
                     nome_voo=cidade_origem+'/'+cidade_destino
-                    while True:
+                    while True: # escalas
                         try:
                             n_escalas= int(input("Insira a quantidade de escalas: "))
                             for escala in range(1,n_escalas+1):
                                 escala = input(f"Insira o nome da {escala}º cidade de escala: ")
-                                l_escala.append(escala)
-                            
+                                l_escala.append(escala)                         
                             break
                         except:
                             print("ERRO: INSIRA SOMENTE NUMEROS!")
 
-                    #Conferencia informacoes
-                    while True:
+                    while True:  #Conferencia informacoes
+
                         try:
                             print( f"\nInformacoes Adicionadas: \n [1] - Codigo Voo: {cod_voo}\n [2] - Cidade de Origem: {cidade_origem}\n [3] - Cidade de Destino: {cidade_destino}") 
                             if l_escala!=[]: print(f" [4] - Escalas para {l_escala})\n")
@@ -129,7 +133,7 @@ while controle>0:
                     d_voo[cod_voo] = [nome_voo,cidade_origem,cidade_destino,n_escalas,l_escala]
                     print(d_voo)
                     print('-'*80)
-                    print(f'\n\n{f"Voo {nome_voo}, adicionado com sucesso!":^80}\n\n')
+                    print(f'\n{f"Voo {nome_voo}, adicionado com sucesso!":^80}\n')
                     print("-"*80)
                     #Continuacao do cadastro
                     
@@ -138,30 +142,20 @@ while controle>0:
                         try:
                             
                             continuar=int(input("\nDeseja Inserir Outro VOO?:[1] - SIM   [2] - NAO: "))
+                            if continuar<1 or continuar>2:
+                                print('\nEscolha somente dentre as opçoes desejadas ')
+                            elif continuar ==1:
+                              break
+                            elif continuar==2:
+                                des_continuar=0 ##ERRO DE ATRIBUICAO CORRIGIDO 
+                                break
+                            else:
+                                print('')
 
                         except ValueError:
 
-                            print("Insira somente numeros!")
+                            print("Insira somente numeros!")   
 
-                        if continuar>2 or continuar<1:
-                            print('\nEscolha somente dentre as opçoes desejadas ')
-
-                        else:
-
-                            des_continuar=0
-                            break
-
-                    
-
-                        
-                    
-
-                        
-
-
-
-                        
-                    #em caso de 0 retorna ao menu inicial
 
             
             elif opc_menu == 2:  # alterar informações de voo
@@ -295,27 +289,74 @@ while controle>0:
                     print("\nERRO: Apenas Numeros!")
                 if opc_menu<1 or opc_menu>3:
                     print("\nOpcao invalida!")
-                elif opc_menu==3:
+                elif opc_menu==3: ##menu cliente sair
                     break
-                elif opc_menu==1:
+                elif opc_menu==1: ## menu cliente busca por cidade de origem
                     print("-"*80)
                     print(f"{'Busca por Cidade de Origem!':^80}")
                     print("-"*80)
                     while True:
                         nome_origem=input("Digite o nome da cidade de origem: ").strip().upper()
                         c = 0
+                        print(f'\n|{f"VOOS DISPONIVEIS PARA: {nome_origem}":^149}|')
+                        print('-' * 150)
+                        print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+                        print('-' * 150)
+
+
                         for codigo, cidade in d_voo.items():
                             if cidade[1]==nome_origem:
-                                print(f'\n{"|| VOOS DISPONIVEIS PARA: {nome_origem} ||":^150}')
 
+                                print(f'| {cod_voo:^10} | {str(cidade[0]):^20} | {str(cidade[1]):^30} | {str(cidade[2]):^20} | {str(cidade[3]):^20} | {str(cidade[4]):^32} |')
                                 print('-' * 150)
-                                print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
-                                print('-' * 150)
+                                c =1
+                        if c==0:
+                           print(f"|{f'Sem Voo Disponiveis! Para a cidade {nome_origem}':^150}|")
+                        
+                        buscar_novamente= int(input("Deseja buscar outra cidade?[1] - Sim  [2] - Nao :"))
+                        if buscar_novamente==2:
+                            break
+                        else:
+                            print("")
 
-                                print(f'| {cod_voo:^10} | {str(voo_inf[0]):^20} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^32} |')
-
-                                print('-' * 150)
-
-
-            
-
+                elif opc_menu==2: ## menu cliente busca por cidade origem e destino
+                    print("-" * 80)
+                    print(f"{'Busca por Cidade de Origem!':^80}")
+                    print("-" * 80)
+                    
+                    while True:
+                        cidade_origem = input("Insira o nome da cidade de ORIGEM: ").strip().upper()
+                        cidade_destino = input("Insira o nome da cidade de DESTINO: ").strip().upper()
+                        l_escala = []
+                        C = 0
+                        
+                        for cid, cidade in d_voo.items():
+                            if cidade[1] == cidade_origem and cidade[2] == cidade_destino:
+                                l_escala.append(cidade[3])
+                            
+                            elif cidade[1] != cidade_origem or cidade[2] != cidade_destino:
+                                C = 1
+                        
+                        if C == 0:
+                            print("Nenhum voo cadastrado nesta origem!")
+                        
+                        if len(l_escala) > 0:
+                            menor_escala = min(l_escala)
+                            
+                            for cid, cidade in d_voo.items():
+                                if cidade[3] == menor_escala:
+                                    if cidade[1] == cidade_origem and cidade[2] == cidade_destino:
+                                        voo = d_voo[cid]
+                                        
+                                        print(f'\n{f"|| VOOS DISPONIVEIS COM MENOR ESCALA: {cidade_origem} ||":^150}')
+                                        print('-' * 150)
+                                        print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+                                        print('-' * 150)
+                                        print(f'| {cid:^10} | {str(voo[0]):^20} | {str(voo[1]):^30} | {str(voo[2]):^20} | {str(voo[3]):^20} | {str(voo[4]):^32} |')
+                                        print('-' * 150)
+                        deseja_continuar=int(input("Deseja realizar outra busca? [1] - SIM   [2] - NAO : "))
+                        if deseja_continuar==1:
+                            print("Realize outra busca!")
+                        else:
+                            print('')
+                            break
