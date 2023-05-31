@@ -2,19 +2,18 @@
 #número inteiro qualquer fornecido pelo usuário. No final, imprima também a soma
 #destes dez números.
 
-multiplicacao=1
-soma=0
-num = 10
-multiplos= []
+## entrada de dados
 
-n = int(input("Digite um numero inteiro para ter seus 10 primeiros multiplos e sua soma: "))
+numero = int(input("Insira um numero inteiro: "))
+soma = 0
+multiplo = 1
 
-for i in range (1,11):
+# processamento
 
-    multiplicacao= i*n
-    soma+=multiplicacao
-    multiplos.append(multiplicacao)
+print("Lista de multiplos: ", end='')
+for n in range(1,11):
+    multiplo =numero*n
+    soma+=multiplo
+    print(n, end=',')
 
-print(f"Valor de Entrada:{n} ")
-print(f"Lista de Multiplos: {multiplos}")
-print(f"Soma: {soma}")
+print("\nSOMA:", soma)

@@ -10,7 +10,7 @@ GAB = ['a', 'b', 'c', 'd', 'e', 'a', 'b', 'c', 'd', 'e']
 notas = []
 
 # Loop para ler o nome e a resposta de cada aluno
-for i in range(10):
+for i in range(2):
     nome = input("Digite o nome do aluno {}: ".format(i+1))
     resposta = input("Digite as respostas do aluno {} (sem espaço): ".format(i+1))
 

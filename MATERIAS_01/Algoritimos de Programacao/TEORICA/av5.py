@@ -9,51 +9,68 @@
 #problema, com exceção de append e len, se necessário. Seu programa deve demonstrar seu conhecimento de percorrer elementos de uma
 #lista.
 
+## Entrada de dados
 
-jogos =[]
-total_jogos = 0
+jogos=[]
+total = 0
 
-#limite laco e validacao
+while True: 
+    try:
+        n_jogos = int(input("Numero de jogos a serem cadastrados: "))
+        if n_jogos>0:
+            break
+        else:
+            print("Insira somente numeros positivos!")
+    except ValueError:
+        print("Insira somente numeros inteiros!")
+        
 
+for n in range(1, n_jogos+1):
+    print(f'{f"Cadastro Jogo nº {n}":^20}')
+    jogo= str(input("Digite o nome do jogo: ")).strip().upper()
+    empresa= str(input("Digite o nome da empresa do jogo: ")).strip().upper()
+    
+    while True:
+        try:
+            ano_lancamento=int(input("Digite o ano de lançamento: "))
+            if ano_lancamento>0:
+                break
+            else:
+                print("Insira somente numeros inteiros positivos")
+        except:
+            print("Insira somente numeros!")
+
+    tipo= str(input("Digite o tipo do jogo: ")).strip().upper()
+    jogos.append([jogo,empresa,ano_lancamento,tipo])
+
+## informacoes para busca
+print("Busca Por Jogos!")
+empresa_busca = str(input("Insira a empresa: ")).strip().upper()
 while True:
-    N = int(input("Numero de total de jogos para serem cadastrados: "))
-    if N>0: 
-        break
+    try:
+        ano_inicio = int(input("Insira o ano de inicio para busca: "))
+        ano_final = int(input("Insira o ano final para busca: "))
+        if ano_final >0  and ano_inicio>0:
+            break
+        else:
+            print("Insira somente numeros positivos!!")
+    except:
+        print("Insira somente numeros inteiros")
 
-#entrada valores
+## percorrer uma lista
+print(f"Jogos da empresa {empresa_busca} no periodo de {ano_inicio} a {ano_final}")
 
-for jogo in range(N):
+for jogo in jogos: #para um elemnto na lista 
 
-    nome= input("Digite o nome: ").upper()
-    empresa = input("Digite a empresa: ").upper()
-    ano = int(input("Ano: "))
-    preco = float(input("Preco: R$"))
+    if jogo[1] == empresa_busca and ano_inicio<=jogo[2]<=ano_final: #verifique se o primeiro item é igual
+        print(f"Nome do jogo: {jogo[0]} \n Empresa: {jogo[1]} \n Ano de Lançamento: {jogo[2]}")
+        total+=1
+        print('-'*20)
 
-    #adicao a lista
-    jogos.append([nome, empresa, ano, preco])
-
-#Entrada busca
-
-empresa_busca = input("Insira a empresa para busca: ").upper()
-ano_inicio = int(input("Insira o ano inicial para busca: "))
-ano_final = int(input("Insira o ano final para busca: "))
-
-#Percorrer a lista para busca
-
-print(f"Jogos da empresa {empresa_busca} no periodo de {ano_inicio} e {ano_final}")
-
-for jogo in jogos:
-
-    # procurar no indice 1 (empresa) se é igual ao valor buscado em empresa_busca e ano>jogo(ano)>ano
-    #lista se inicia em 0
-
-    if jogo[1] == empresa_busca and ano_final>= jogo[2]<=ano_final:
-
-        print(f"\n\nNome: {jogo[0]} Empresa: {jogo[1]} Ano: {jogo[2]} Preco: {jogo[3]:.2f}")
-        total_jogos+=1
-
-if total_jogos>0:
-
-    print("Total de Jogos:",total_jogos)
+if total>0: 
+    print(f"\nTotal de Jogos: {total}")
 else:
-    print("Não ha jogos na condição de busca")
+    print("\nNão ha jogos nessa condição")
+
+
+

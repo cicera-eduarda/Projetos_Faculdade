@@ -171,11 +171,11 @@ while controle>0:
                     # voos cadastrados
                     if len(d_voo) != 0:
                         print('-' * 150)
-                        print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+                        print(f"| {'Codigo':^10} | {'Nome VOO':^30} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^22} |")
                         print('-' * 150)
 
                         for cod_voo, voo_inf in d_voo.items():
-                            print(f'| {cod_voo:^10} | {str(voo_inf[0]):^20} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^32} |')
+                            print(f'| {cod_voo:^10} | {str(voo_inf[0]):^30} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^22} |')
 
                             print('-' * 150)
 
@@ -220,29 +220,31 @@ while controle>0:
                                         print("\nERRO: Este voo não existe!")
                                         break
                                 elif des_continuar==2:
-                                    print("Voltando ao menu principal!")
+                                    print(f"'\n{'Voltando ao menu principal!':^80}")
                                     break
                                 else:
                                     print(f"{'Digite uma opcao valida!':^80}")
 
                             except ValueError:
                                 print("Digite apenas números inteiros!")
+                            if des_continuar==2:
+                                break
 
+                        if des_continuar==2:
+                            break
                     else:
-                        print("Nenhum voo cadastrado!")
+                        print(f"{'Nenhum voo cadastrado!':^150}")
                         break
 
             elif opc_menu==3: #exclusao por colaborador
-                print('-'*80)
-                print(f"{'Seja Bem Vindo ao Sistema de Exclusao de VOO':^80}")
+                    print('-' * 150)
+                    print(f"{'Seja Bem Vindo ao Sistema de Exclusao de VOO':^150}")
 
-
-                if d_voo==[]:
-
-                    des_continuar=1
-                    while des_continuar==1:
-                        # voos cadastrados
-                        if len(d_voo) != 0:
+                    if len(d_voo) == 0:
+                        print(f'\n{"Nenhum Voo Encontrado! Você Será Redirecionado ao Menu Principal!":^80}')
+                    else:
+                        des_continuar = 1
+                        while des_continuar == 1:
                             print('-' * 150)
                             print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
                             print('-' * 150)
@@ -250,14 +252,12 @@ while controle>0:
                             for cod_voo, voo_inf in d_voo.items():
                                 print(f'| {cod_voo:^10} | {str(voo_inf[0]):^20} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^32} |')
 
-                                print('-' * 150)
+                            print('-' * 150)
 
                             # Exclusao
                             while True:
-
                                 try:
                                     des_continuar = int(input("Deseja Excluir Algum VOO?: [1] - SIM    [2] - NÃO: "))
-
 
                                     if des_continuar == 1:
                                         cod_voo_busca = int(input("\nDigite o código do voo que deseja excluir: "))
@@ -270,10 +270,8 @@ while controle>0:
                                     d_voo.pop(cod_voo_busca)
                                     print("\nVoo EXCLUIDO COM SUCESSO")
                                     break
-                        else:
-                            break
-                else:
-                    print(f'\n{"Nenhum Voo Encontrado! Voce Sera Redirecionado ao Menu Principal!":^80}')     
+
+
 
         elif opc_menu==1: #menu cliente
 
@@ -292,32 +290,31 @@ while controle>0:
                 elif opc_menu==3: ##menu cliente sair
                     break
                 elif opc_menu==1: ## menu cliente busca por cidade de origem
-                    print("-"*80)
+                    print("-" * 80)
                     print(f"{'Busca por Cidade de Origem!':^80}")
-                    print("-"*80)
+                    print("-" * 80)
                     while True:
-                        nome_origem=input("Digite o nome da cidade de origem: ").strip().upper()
+                        nome_origem = input("Digite o nome da cidade de origem: ").strip().upper()
                         c = 0
                         print(f'\n|{f"VOOS DISPONIVEIS PARA: {nome_origem}":^149}|')
                         print('-' * 150)
                         print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
                         print('-' * 150)
 
-
                         for codigo, cidade in d_voo.items():
-                            if cidade[1]==nome_origem:
-
-                                print(f'| {cod_voo:^10} | {str(cidade[0]):^20} | {str(cidade[1]):^30} | {str(cidade[2]):^20} | {str(cidade[3]):^20} | {str(cidade[4]):^32} |')
+                            if cidade[1] == nome_origem:
+                                print(f'| {codigo:^10} | {str(cidade[0]):^20} | {str(cidade[1]):^30} | {str(cidade[2]):^20} | {str(cidade[3]):^20} | {str(cidade[4]):^32} |')
                                 print('-' * 150)
-                                c =1
-                        if c==0:
-                           print(f"|{f'Sem Voo Disponiveis! Para a cidade {nome_origem}':^150}|")
+                                c = 1
+                        if c == 0:
+                            print(f"|{f'Sem Voo Disponiveis! Para a cidade {nome_origem}':^150}|")
                         
-                        buscar_novamente= int(input("Deseja buscar outra cidade?[1] - Sim  [2] - Nao :"))
-                        if buscar_novamente==2:
+                        buscar_novamente = int(input("Deseja buscar outra cidade? [1] - Sim  [2] - Nao: "))
+                        if buscar_novamente == 2:
                             break
                         else:
                             print("")
+
 
                 elif opc_menu==2: ## menu cliente busca por cidade origem e destino
                     print("-" * 80)

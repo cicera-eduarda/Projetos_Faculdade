@@ -25,7 +25,7 @@ peso = input ('Qual seu peso?')
 numero1 = input ('Digite um número')
 numero2 = input ('Digite o segundo número')
 print('A soma dos dois números é',numero1,numero2 )
-print('A soma dos números é', numero1+numero2) ## como fazer esta merda
+print('A soma dos números é', numero1+numero2) ## como fazer
 
 numero3 = int(input('Digite um número:'))
 numero4 = int(input('Digite o segundo número:'))
