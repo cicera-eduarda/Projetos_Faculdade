@@ -6,6 +6,8 @@
 
 GAB = ['a','b','c','d','e','a','b','c','d','e']
 alunos = []
+nota=0
+soma=0
 ## entrada de dados
 qtd_alunos=int(input("Digite a quantidade de alunos para correção: "))
 
@@ -13,15 +15,27 @@ for a in range(1,qtd_alunos+1):
     nome= str(input(f"Insira o nome do aluno {a}: ")).strip().upper()
     resp= str(input(f"Digite as respostas do aluno {a} (sem espaco): ")).strip().lower()
     #calculo nota
-    for r in range(len(resp)):
-        alunos.append([nome,resp, nota])
+    nota=0
+    for r in range(len(resp)): #transforma a resposta em lista
+        if resp[r]==GAB[r]: #acessa o item da lista resp pelo indice r
+            nota+=1
+
+    
+    alunos.append([nome, nota])
 
     
     #print(alunos) #lista toda com todos os elementos
     #print(alunos[0]) #lista a primeira sub lista  da lista 
     #print(alunos[0][1]) #lista o segundo elemento da primeira sub lista
 
-## processamento
+## 
+print("")
 for aluno in alunos: #para o item 1 faça. trata o item 1 como uma lista normal
-    print("Aluno:", aluno[0]) 
-    print("Respostas: ",aluno[1])
+    print("Aluno:", aluno[0], "Nota: ",aluno[1]) 
+    soma+=aluno[1]
+
+## calculo da media
+
+media = soma/qtd_alunos
+
+print("A media da sala é: ",media)

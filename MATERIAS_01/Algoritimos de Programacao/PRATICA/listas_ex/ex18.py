@@ -32,3 +32,4 @@ for nome, nota in notas:
 # Calcula e imprime a média da sala
 media = sum(nota for nome, nota in notas) / len(notas)
 print("\nMédia da sala: {:.2f}".format(media))
+print(len(notas))

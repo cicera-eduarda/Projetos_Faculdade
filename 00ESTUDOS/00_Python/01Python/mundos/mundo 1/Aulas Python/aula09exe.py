@@ -3,7 +3,7 @@ cores={
     'azul':'\033[;32m',
     'verde':'\033[:34m' }
 
-frase = '     Curso em Video Python             '
+frase = 'Curso em Video Python             '
 print('\033[1;34m',frase,'\033[m')
 print(frase[13])
 print(frase[1:15:2])
