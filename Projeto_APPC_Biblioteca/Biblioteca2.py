@@ -1,5 +1,7 @@
 print("Cicera Eduarda da Costa 23016727 \n Elzio Canesin Junior 23016097")
 
+d_livros = {123: ['Ana',1, ['Marcos,Julio'], 54.90],}
+
 
 # Ferramentas
 
@@ -153,6 +155,8 @@ while 1 <= escolha_sistema <= 3:
                 print("Escolha uma opcao valida!")
             else:
                 break
+
+        #busca por titulo
         if busca == 1:
             for livro in d_livros.values():
                 busca_titulo = input("Digite o nome do livro para Busca: ")
@@ -166,6 +170,7 @@ while 1 <= escolha_sistema <= 3:
                 else:
                     print('Título não encontrado!')
 
+        #busca por codigo
         if busca == 2:
             busca_cod = int(input('digite o codigo do livro para busca: '))
             if busca_cod in d_livros:
@@ -178,10 +183,11 @@ while 1 <= escolha_sistema <= 3:
 
             else:
                 print('Codigo não encontrado!')
+        ## busca por livros acima de 50 reais
 
         if busca == 3:
-            for codigo, livro in d_livros.items():
-                if preco_livro >= 50:
+            for codigo, livro in d_livros.values():
+                if livro >= 50:
                     print('-=' * 30)
                     print('Codigo || Titulo || Numero || autores || Autores || preco')
                     print(f'\t {codigo, livro}')
