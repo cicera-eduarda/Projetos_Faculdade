@@ -213,17 +213,39 @@ def alterar_voo():
 
 
 def apagar_voo():
-    print("-" * 80)
-    print(f'{"Remoção de Voo":^80}')
-    print("-" * 80)
+    print('-' * 150)
+    print(f"{'Seja Bem Vindo ao Sistema de Exclusao de VOO':^150}")
 
-    cod_voo = input("Digite o código do voo que deseja apagar: ").strip().upper()
-
-    if cod_voo in d_voo:
-        del d_voo[cod_voo]
-        print("Voo removido com sucesso!")
+    if len(d_voo) == 0:
+        print(f'\n{"Nenhum Voo Encontrado! Você Será Redirecionado ao Menu Principal!":^80}')
     else:
-        print("Voo não encontrado!")
+        des_continuar = 1
+        while des_continuar == 1:
+            print('-' * 150)
+            print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+            print('-' * 150)
+
+            for cod_voo, voo_inf in d_voo.items():
+                print(f'| {cod_voo:^10} | {str(voo_inf[0]):^20} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^32} |')
+
+            print('-' * 150)
+
+            # Exclusao
+            while True:
+                try:
+                    des_continuar = int(input("Deseja Excluir Algum VOO?: [1] - SIM    [2] - NÃO: "))
+
+                    if des_continuar == 1:
+                        cod_voo_busca = int(input("\nDigite o código do voo que deseja excluir: "))
+                    else:
+                        break
+                except ValueError:
+                    print("Digite apenas números inteiros!")
+
+                if cod_voo_busca in d_voo.keys():
+                    d_voo.pop(cod_voo_busca)
+                    print("\nVoo EXCLUIDO COM SUCESSO")
+                    break
 
 
 def consultar_voo(): # cidade de origem
