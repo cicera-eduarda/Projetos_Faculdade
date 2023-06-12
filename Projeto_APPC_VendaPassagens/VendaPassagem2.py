@@ -27,8 +27,9 @@ def exibir_menu_cliente():
     print("-" * 80)
     print(f'{"Área Cliente":^80}')
     print("-" * 80)
-    print("[1] - Consultar Voo")
-    print("[2] - Voltar ao Menu Anterior")
+    print("[1] - Buscar VOO por Origem: ")
+    print("[2] - Buscar VOO por Origem e Destino: ")
+    print("[3] - Voltar ao Menu Anterior: ")
 
 
 def cadastrar_voo():
@@ -105,26 +106,78 @@ def apagar_voo():
         print("Voo não encontrado!")
 
 
-def consultar_voo():
+def consultar_voo(): # cidade de origem
     print("-" * 80)
-    print(f'{"Consulta de Voo":^80}')
+    print(f'{"Consulta de Voo por Origem":^80}')
     print("-" * 80)
 
-    cod_voo = input("Digite o código do voo que deseja consultar: ")
+    while True:
+        nome_origem = input("Digite o nome da cidade de origem: ").strip().upper()
+        c = 0
+        print(f'\n|{f"VOOS DISPONIVEIS PARA: {nome_origem}":^149}|')
+        print('-' * 150)
+        print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+        print('-' * 150)
 
-    if cod_voo in d_voo:
-        print("-" * 80)
-        print(f'{"Informações do Voo":^80}')
-        print("-" * 80)
+        for codigo, cidade in d_voo.items():
+            if cidade[1] == nome_origem:
+                print(f'| {codigo:^10} | {str(cidade[0]):^20} | {str(cidade[1]):^30} | {str(cidade[2]):^20} | {str(cidade[3]):^20} | {str(cidade[4]):^32} |')
+                print('-' * 150)
+                c = 1
+        if c == 0:
+            print(f"|{f'Sem Voo Disponiveis! Para a cidade {nome_origem}':^150}|")
 
-        print(f"Código do Voo: {cod_voo}")
-        print(f"Cidade de Origem: {d_voo[cod_voo]['Origem']}")
-        print(f"Cidade de Destino: {d_voo[cod_voo]['Destino']}")
-        print("Escalas:")
-        for i, escala in enumerate(d_voo[cod_voo]['Escalas'], 1):
-            print(f"{i}. {escala}")
-    else:
-        print("Voo não encontrado!")
+        buscar_novamente = int(input("Deseja buscar outra cidade? [1] - Sim  [2] - Nao: "))
+        if buscar_novamente == 2:
+            break
+        else:
+            print("")
+
+
+def consultar_voo_cidades(): #cidade origem/destino
+    print("-" * 80)
+    print(f"{'Busca por Cidade de Origem!':^80}")
+    print("-" * 80)
+
+    while True:
+        cidade_origem = input("Insira o nome da cidade de ORIGEM: ").strip().upper()
+        cidade_destino = input("Insira o nome da cidade de DESTINO: ").strip().upper()
+        l_escala = []
+        C = 0
+        
+        for cid, cidade in d_voo.items():
+            if cidade[1] == cidade_origem and cidade[2] == cidade_destino:
+                l_escala.append(cidade[3])
+            
+            elif cidade[1] != cidade_origem or cidade[2] != cidade_destino:
+                C = 1
+        
+        if C == 0:
+            print("Nenhum voo cadastrado nesta origem!")
+        
+        if len(l_escala) > 0:
+            menor_escala = min(l_escala)
+            
+            for cid, cidade in d_voo.items():
+                if cidade[3] == menor_escala:
+                    if cidade[1] == cidade_origem and cidade[2] == cidade_destino:
+                        voo = d_voo[cid]
+                        
+                        print(f'\n{f"|| VOOS DISPONIVEIS COM MENOR ESCALA: {cidade_origem} ||":^150}')
+                        print('-' * 150)
+                        print(f"| {'Codigo':^10} | {'Nome VOO':^20} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^32} |")
+                        print('-' * 150)
+                        print(f'| {cid:^10} | {str(voo[0]):^20} | {str(voo[1]):^30} | {str(voo[2]):^20} | {str(voo[3]):^20} | {str(voo[4]):^32} |')
+                        print('-' * 150)
+        deseja_continuar=int(input("Deseja realizar outra busca? [1] - SIM   [2] - NAO : "))
+        if deseja_continuar==1:
+            print("Realize outra busca!")
+        else:
+            print('')
+            break
+
+        
+
 
 
 while True:
@@ -176,12 +229,13 @@ while True:
                 print("ERRO: Informe apenas números!")
                 continue
 
-            if opc_menu_cliente == 2:
+            if opc_menu_cliente == 3:
                 break
 
-            elif opc_menu_cliente == 1:
+            elif opc_menu_cliente == 1: #busca por cidade
                 consultar_voo()
-
+            elif opc_menu_cliente == 2: #busca por cid_orig/cid_destino
+                consultar_voo_cidades()
             else:
                 print("Opção inválida!")
 
