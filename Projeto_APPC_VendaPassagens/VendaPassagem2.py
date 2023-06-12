@@ -33,63 +33,183 @@ def exibir_menu_cliente():
 
 
 def cadastrar_voo():
-    print("-" * 80)
-    print(f'{"Cadastro de Voo":^80}')
-    print("-" * 80)
+    des_continuar=1
+    print("-"*80)           
+    print(f'{"Cadastro de VOO":^80}')
+    print("-"*80)  
 
-    while True:
-        cod_voo = input("Digite o código do voo: ")
+    while des_continuar==1: #castro voo / proximo voo
 
-        if cod_voo in d_voo:
-            print("Código já existente! Digite outro código.")
-        else:
-            break
+        l_escala=[]
+        #COD_VOO
+        while True:
+            try:
+                cod_voo = int(input("Digite o codigo do voo: "))
+                if cod_voo in d_voo.keys():
+                    print(f"Codigo ja existente!")
+                else:
+                    break
 
-    cidade_origem = input("Insira o nome da cidade de origem do voo: ").strip().upper()
-    cidade_destino = input("Insira o nome da cidade de destino do voo: ").strip().upper()
-    num_escalas = int(input("Insira o número de escalas: "))
+            except:
+                print("\nERRO: INSIRA SOMENTE NUMEROS!TENTE NOVAMENTE\n")
 
-    escalas = []
-    for i in range(num_escalas):
-        escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ").strip().upper()
-        escalas.append(escala)
+        #CIDADE DE ORIGEM/DESTINO/NUMERO ESCALAS
 
-    d_voo[cod_voo] = {
-        "Origem": cidade_origem,
-        "Destino": cidade_destino,
-        "Escalas": escalas
-    }
+        cidade_origem= input("Insira o nome da cidade de origem do voo: ").strip().upper()
+        cidade_destino= input("Insira a cidade de destino do voo: ").strip().upper()
+        nome_voo=cidade_origem+'/'+cidade_destino
+        while True: # escalas
+            try:
+                n_escalas= int(input("Insira a quantidade de escalas: "))
+                for escala in range(1,n_escalas+1):
+                    escala = input(f"Insira o nome da {escala}º cidade de escala: ")
+                    l_escala.append(escala)                         
+                break
+            except:
+                print("ERRO: INSIRA SOMENTE NUMEROS!")
 
-    print("Voo cadastrado com sucesso!")
+        while True:  #Conferencia informacoes
+
+            try:
+                print( f"\nInformacoes Adicionadas: \n [1] - Codigo Voo: {cod_voo}\n [2] - Cidade de Origem: {cidade_origem}\n [3] - Cidade de Destino: {cidade_destino}") 
+                if l_escala!=[]: print(f" [4] - Escalas para {l_escala})\n")
+                conf_inf= int(input("As informacoes estao corretas? [1-SIM] OU [2-NAO]: "))
+                
+                if conf_inf == 1:
+                    break
+                elif conf_inf>4 or conf_inf<1: #VALIDACAO
+                    print("OPCAO INVALIDA: Escolha dentre as opcoes disponiveis!")
+                else:
+                    print('-'*80)
+                    print( f"\n [1] - Codigo Voo: {cod_voo}\n [2] - Cidade de Origem: {cidade_origem}\n [3] - Cidade de Destino: {cidade_destino}\n [4] - Escalas para {l_escala}): ")
+                    n_alteracao = int(input("Escolha o item a ser alterado, ou digite [5] para sair: "))
+                    if n_alteracao>5 or n_alteracao<1:
+                        print("Escolha uma opcao valida!")
+                    elif n_alteracao ==5: 
+                        break
+                    elif n_alteracao ==1:
+                        cod_voo = int(input("Digite o codigo do voo: "))
+                    elif n_alteracao ==2:
+                        cidade_origem= input("Insira o nome da cidade de origem do voo: ").strip().upper()
+                        nome_voo=cidade_origem+'/'+cidade_destino
+
+                    elif n_alteracao==3:
+                        cidade_destino= input("Insira a cidade de destino do voo: ").strip().upper()
+                        nome_voo=cidade_origem+'/'+cidade_destino
+
+                    elif n_alteracao==4:
+                        escalas= int(input("Insira a quantidade de escalas: "))
+                        for escala in range(1,escalas+1):
+                                escala = input(f"Insira o nome da {escala}º cidade de escala: ")
+                                l_escala.append(escala)
+            except ValueError:
+                print("Insira apenas numeros inteiros")
+
+        #Adicionando dicionarios
+        d_voo[cod_voo] = [nome_voo,cidade_origem,cidade_destino,n_escalas,l_escala]
+        print(d_voo)
+        print('-'*80)
+        print(f'\n{f"Voo {nome_voo}, adicionado com sucesso!":^80}\n')
+        print("-"*80)
+        #Continuacao do cadastro
+        
+        while True:
+
+            try:
+                
+                continuar=int(input("\nDeseja Inserir Outro VOO?:[1] - SIM   [2] - NAO: "))
+                if continuar<1 or continuar>2:
+                    print('\nEscolha somente dentre as opçoes desejadas ')
+                elif continuar ==1:
+                    break
+                elif continuar==2:
+                    des_continuar=0 ##ERRO DE ATRIBUICAO CORRIGIDO 
+                    break
+                else:
+                    print('')
+
+            except ValueError:
+
+                print("Insira somente numeros!")   
+
 
 
 def alterar_voo():
-    print("-" * 80)
-    print(f'{"Alteração de Voo":^80}')
-    print("-" * 80)
+    des_continuar = 1
+    print(f"{'Seja Bem Vindo ao Sistema de Alteração de VOO':^150}")
 
-    cod_voo = input("Digite o código do voo que deseja alterar: ").strip().upper()
+    while des_continuar > 0:
+        print("\n\n")
+        print("-" * 150)
+        print('-' * 150)
 
-    if cod_voo in d_voo:
-        print(f"Voo encontrado! Informe as novas informações:")
-        cidade_origem = input("Insira o nome da cidade de origem do voo: ").strip().upper()
-        cidade_destino = input("Insira o nome da cidade de destino do voo: ").strip().upper()
-        num_escalas = int(input("Insira o número de escalas: "))
+        # voos cadastrados
+        if len(d_voo) != 0:
+            print('-' * 150)
+            print(f"| {'Codigo':^10} | {'Nome VOO':^30} | {'Origem':^30} | {'Destino':^20} | {'Qtd. Escalas':^20} | {'Cid. Escalas':^22} |")
+            print('-' * 150)
 
-        escalas = []
-        for i in range(num_escalas):
-            escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ").strip().upper()
-            escalas.append(escala)
+            for cod_voo, voo_inf in d_voo.items():
+                print(f'| {cod_voo:^10} | {str(voo_inf[0]):^30} | {str(voo_inf[1]):^30} | {str(voo_inf[2]):^20} | {str(voo_inf[3]):^20} | {str(voo_inf[4]):^22} |')
 
-        d_voo[cod_voo] = {
-            "Origem": cidade_origem,
-            "Destino": cidade_destino,
-            "Escalas": escalas
-        }
+                print('-' * 150)
 
-        print("Voo alterado com sucesso!")
-    else:
-        print("Voo não encontrado!")
+            # alteração
+            while True:
+
+                try:
+                    des_continuar = int(input("Deseja Alterar Algum VOO?: [1] - SIM    [2] - NÃO: "))
+
+
+                    if des_continuar == 1:
+                        cod_voo_busca = int(input("\nDigite o código do voo que deseja alterar: "))
+
+                        if cod_voo_busca in d_voo.keys():
+                            voo_inf = d_voo[cod_voo_busca]
+
+                            cidade_origem = input("Cidade de origem: ")
+                            cidade_destino = input("Cidade de destino: ")
+                            nome_voo= cidade_origem+'/'+cidade_destino
+                            while True:
+                                try:
+                                    n_escalas = int(input("Insira o número de escalas: "))
+                                    break
+                                except:
+                                    print("Insira apenas números!")
+
+                            l_escala = []
+
+                            for escala in range(1, n_escalas + 1):
+                                escala = input(f"Insira o nome da {escala}ª cidade de escala: ")
+                                l_escala.append(escala)
+                            voo_inf[0] = nome_voo
+                            voo_inf[1] = cidade_origem
+                            voo_inf[2] = cidade_destino
+                            voo_inf[3] = n_escalas
+                            voo_inf[4] = l_escala
+
+                            print("\nAlterações realizadas com sucesso!")
+                            print("Confira abaixo a tabela de atualizacao dos voos!")
+                            break
+                        else:
+                            print("\nERRO: Este voo não existe!")
+                            break
+                    elif des_continuar==2:
+                        print(f"'\n{'Voltando ao menu principal!':^80}")
+                        break
+                    else:
+                        print(f"{'Digite uma opcao valida!':^80}")
+
+                except ValueError:
+                    print("Digite apenas números inteiros!")
+                if des_continuar==2:
+                    break
+
+            if des_continuar==2:
+                break
+        else:
+            print(f"{'Nenhum voo cadastrado!':^150}")
+            break
 
 
 def apagar_voo():
