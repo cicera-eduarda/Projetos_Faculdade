@@ -45,13 +45,13 @@ def cadastrar_voo():
         else:
             break
 
-    cidade_origem = input("Insira o nome da cidade de origem do voo: ")
-    cidade_destino = input("Insira o nome da cidade de destino do voo: ")
+    cidade_origem = input("Insira o nome da cidade de origem do voo: ").strip().upper()
+    cidade_destino = input("Insira o nome da cidade de destino do voo: ").strip().upper()
     num_escalas = int(input("Insira o número de escalas: "))
 
     escalas = []
     for i in range(num_escalas):
-        escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ")
+        escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ").strip().upper()
         escalas.append(escala)
 
     d_voo[cod_voo] = {
@@ -68,17 +68,17 @@ def alterar_voo():
     print(f'{"Alteração de Voo":^80}')
     print("-" * 80)
 
-    cod_voo = input("Digite o código do voo que deseja alterar: ")
+    cod_voo = input("Digite o código do voo que deseja alterar: ").strip().upper()
 
     if cod_voo in d_voo:
         print(f"Voo encontrado! Informe as novas informações:")
-        cidade_origem = input("Insira o nome da cidade de origem do voo: ")
-        cidade_destino = input("Insira o nome da cidade de destino do voo: ")
+        cidade_origem = input("Insira o nome da cidade de origem do voo: ").strip().upper()
+        cidade_destino = input("Insira o nome da cidade de destino do voo: ").strip().upper()
         num_escalas = int(input("Insira o número de escalas: "))
 
         escalas = []
         for i in range(num_escalas):
-            escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ")
+            escala = input(f"Insira o nome da {i + 1}ª cidade de escala: ").strip().upper()
             escalas.append(escala)
 
         d_voo[cod_voo] = {
@@ -97,7 +97,7 @@ def apagar_voo():
     print(f'{"Remoção de Voo":^80}')
     print("-" * 80)
 
-    cod_voo = input("Digite o código do voo que deseja apagar: ")
+    cod_voo = input("Digite o código do voo que deseja apagar: ").strip().upper()
 
     if cod_voo in d_voo:
         del d_voo[cod_voo]
@@ -175,10 +175,6 @@ def consultar_voo_cidades(): #cidade origem/destino
         else:
             print('')
             break
-
-        
-
-
 
 while True:
     exibir_menu()
